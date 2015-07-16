@@ -87,6 +87,12 @@
     <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\JE.EmbeddedChecks\JE.EmbeddedChecks.csproj">
+      <Project>{34ACDBE5-8B6C-4432-86AA-9D8567CDC2B6}</Project>
+      <Name>JE.EmbeddedChecks</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

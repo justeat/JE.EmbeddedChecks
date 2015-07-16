@@ -6,6 +6,6 @@ namespace JE.EmbeddedChecks
 
         Passed = 20000,
 
-        FailedInconclusive = 50000
+        Failed = 50000
     }
 }
