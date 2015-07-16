@@ -18,12 +18,12 @@ namespace JE.EmbeddedChecks
             {
                 var customThing = Run(result);
                 EnrichResultWith(result, customThing);
+                return result;
             }
             catch (Exception exception)
             {
-                result = ResultFromException(exception);
+                return ResultFromException(exception);
             }
-            return result;
         }
 
         protected virtual void EnrichResultWith(CheckResult result, TCheckResult checkResult)
@@ -37,7 +37,7 @@ namespace JE.EmbeddedChecks
         {
             return new CheckResult(_name)
             {
-                Status = CheckStatus.Failed,
+                Status = CheckStatus.FailedInconclusive,
                 Message = ex.GetBaseException().Message,
                 StackTrace = ex.GetBaseException().StackTrace
             };

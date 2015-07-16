@@ -77,6 +77,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="describe_an_embedded_check.cs" />
+    <Compile Include="describe_running_checks.cs" />
     <Compile Include="nspec_base.cs" />
     <Compile Include="DebuggerShim.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
