@@ -39,7 +39,8 @@ namespace JE.EmbeddedChecks
             {
                 Status = CheckStatus.Failed,
                 Message = ex.GetBaseException().Message,
-                StackTrace = ex.GetBaseException().StackTrace
+                StackTrace = ex.GetBaseException().StackTrace,
+                RawException = ex
             };
         }
     }

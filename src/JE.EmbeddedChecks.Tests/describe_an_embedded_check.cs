@@ -27,6 +27,8 @@ namespace JE.EmbeddedChecks.Tests
                             it["should have the exception message"] =
                                 () => { _result.Message.ShouldBe("You shall not pass!"); };
                             it["should have the exception stacktrace"] = () => { _result.StackTrace.ShouldNotBe(null); };
+                            it["should have the raw exception"] =
+                                () => _result.RawException.ShouldBeOfType<NotSupportedException>();
                         };
                 };
 

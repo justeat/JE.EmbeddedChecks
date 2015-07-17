@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 
 namespace JE.EmbeddedChecks
@@ -16,5 +17,6 @@ namespace JE.EmbeddedChecks
         public string Message { get; set; }
         public string StackTrace { get; set; }
         public IDictionary<string, string> MetaData { get; set; }
+        public Exception RawException { get; set; }
     }
 }
