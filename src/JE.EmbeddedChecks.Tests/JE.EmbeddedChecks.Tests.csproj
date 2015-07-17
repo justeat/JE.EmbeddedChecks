@@ -79,8 +79,12 @@
   <ItemGroup>
     <Compile Include="describe_an_embedded_check.cs" />
     <Compile Include="describe_running_checks.cs" />
+    <Compile Include="EnrichingCheck.cs" />
+    <Compile Include="FailingCheck.cs" />
+    <Compile Include="FailsWithReasonCheck.cs" />
     <Compile Include="nspec_base.cs" />
     <Compile Include="DebuggerShim.cs" />
+    <Compile Include="PassingCheck.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

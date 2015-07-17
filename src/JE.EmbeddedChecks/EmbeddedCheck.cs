@@ -37,7 +37,7 @@ namespace JE.EmbeddedChecks
         {
             return new CheckResult(_name)
             {
-                Status = CheckStatus.Failed,
+                Status = CheckStatus.FailedInconclusive,
                 Message = ex.GetBaseException().Message,
                 StackTrace = ex.GetBaseException().StackTrace,
                 RawException = ex

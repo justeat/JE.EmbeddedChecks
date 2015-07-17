@@ -17,7 +17,11 @@ namespace JE.EmbeddedChecks
                 "."
             },
             {
-                CheckStatus.Failed,
+                CheckStatus.FailedInconclusive,
+                "/"
+            },
+            {
+                CheckStatus.FailedWithReason,
                 "F"
             }
         };
@@ -30,7 +34,7 @@ namespace JE.EmbeddedChecks
         protected override void OnPublishError(CheckResult result, Exception exception)
         {
             Trace.TraceError(
-                "{0} failed: {1}|{2}|{3}|{4}|{5}",
+                "{0} failed: {1}|{2}|{3}|{4}",
                 result.Name,
                 result.Message,
                 result.MetaData,

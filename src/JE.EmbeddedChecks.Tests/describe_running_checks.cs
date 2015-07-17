@@ -26,32 +26,48 @@ namespace JE.EmbeddedChecks.Tests
                                                       {
                                                           new PassingCheck("a"),
                                                           new PassingCheck("b"),
-                                                          new PassingCheck("c")
+                                                          new PassingCheck("c"),
+                                                          new PassingCheck("d")
                                                       };
                                     };
-                            it["should return 3 passes"] = () => ResultsShouldBe(CheckStatus.Passed, 3);
-                            it["should return 0 failures"] = () => ResultsShouldBe(CheckStatus.Failed, 0);
+                            it["should return 3 passes"] = () => ResultsShouldBe(CheckStatus.Passed, 4);
+                            it["should return 0 inconclusive"] = () => ResultsShouldBe(CheckStatus.FailedInconclusive, 0);
+                            it["should return 0 failed"] = () => ResultsShouldBe(CheckStatus.FailedWithReason, 0);
                             it["should return 0 unknown"] = () => ResultsShouldBe(CheckStatus.Unknown, 0);
                         };
-                    context["and 1 fails"] = () =>
+                    context["and 1 fails for a specific reason"] = () =>
                         {
                             before = () =>
                                     {
                                         _checks = new List<IAmACheck>
                                                       {
                                                           new PassingCheck("a"),
-                                                          new FailingCheck("b"),
-                                                          new PassingCheck("c")
+                                                          new PassingCheck("b"),
+                                                          new FailsWithReasonCheck("c"),
+                                                          new PassingCheck("d")
                                                       };
                                     };
-                            it["should return 2 passes"] = () => ResultsShouldBe(CheckStatus.Passed, 2);
-                            it["should return 1 failure"] = () => ResultsShouldBe(CheckStatus.Failed, 1);
+                            it["should return 2 passes"] = () => ResultsShouldBe(CheckStatus.Passed, 3);
+                            it["should return 1 failed"] = () => ResultsShouldBe(CheckStatus.FailedWithReason, 1);
+                            it["should return 0 inconclusive"] = () => ResultsShouldBe(CheckStatus.FailedInconclusive, 0);
+                            it["should return 0 unknown"] = () => ResultsShouldBe(CheckStatus.Unknown, 0);
                         };
-                    context["and 1 cannot be run for an error"] = () =>
+                    context["and 1 fails because of an exception"] = () =>
                         {
-                            xit["should return 2 passes"] = () => { };
-                            xit["should return 1 inconclusive"] = () => { };
-                            xit["should return 0 failure"] = () => { };
+                            before = () =>
+                            {
+                                _checks = new List<IAmACheck>
+                                                      {
+                                                          new PassingCheck("a"),
+                                                          new FailingCheck("b"),
+                                                          new PassingCheck("c"),
+                                                          new PassingCheck("d")
+                                                      };
+                            };
+                            it["should return 2 passes"] = () => ResultsShouldBe(CheckStatus.Passed, 3);
+                            it["should return 0 failures"] = () => ResultsShouldBe(CheckStatus.FailedWithReason, 0);
+                            it["should return 1 inconclusive"] = () => ResultsShouldBe(CheckStatus.FailedInconclusive, 1);
+                            it["should return 0 unknown"] = () => ResultsShouldBe(CheckStatus.Unknown, 0);
                         };
                 };
         }
