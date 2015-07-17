@@ -4,6 +4,6 @@ namespace JE.EmbeddedChecks
 {
     public interface IRunChecks
     {
-        IList<CheckResult> Run();
+        IList<CheckResult> Run(IEnumerable<IAmACheck> checks);
     }
 }
