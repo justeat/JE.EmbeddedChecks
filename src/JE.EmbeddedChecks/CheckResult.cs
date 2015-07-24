@@ -9,14 +9,21 @@ namespace JE.EmbeddedChecks
         {
             Name = name;
             Status = CheckStatus.Unknown;
-            MetaData = new Dictionary<string, string>();
+            MetaData = new Dictionary<string, object>();
         }
 
         public string Name { get; set; }
+
         public CheckStatus Status { get; set; }
+
         public string Message { get; set; }
+
         public string StackTrace { get; set; }
-        public IDictionary<string, string> MetaData { get; set; }
+
+        public IDictionary<string, object> MetaData { get; set; }
+
         public Exception RawException { get; set; }
+
+        public TimeSpan Duration { get; set; }
     }
 }

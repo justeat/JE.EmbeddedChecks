@@ -1,26 +1,38 @@
 using System;
+using System.Collections.Generic;
 
 namespace JE.EmbeddedChecks
 {
-    public abstract class ResultPublisher : IPublishResults
+    public class ResultPublisher : IPublishResults
     {
         public void PublishResultButCatchExceptions(CheckResult result)
         {
             try
             {
-                Publish(result);
+                PublishCheckResult(result);
             }
             catch (Exception ex)
             {
-                OnPublishError(result, ex);
+                OnCheckError(result, ex);
             }
         }
 
-        protected abstract void Publish(CheckResult result);
-
-        protected virtual void OnPublishError(CheckResult result, Exception exception)
+        public virtual void PublishRunStarted(IList<IAmACheck> checks)
         {
-            // hint: log it.
+            
+        }
+
+        public virtual void PublishRunFinished(IList<CheckResult> results, TimeSpan elapsed)
+        {
+            
+        }
+
+        public virtual void PublishCheckResult(CheckResult result)
+        {
+        }
+
+        public virtual void OnCheckError(CheckResult result, Exception exception)
+        {
         }
     }
 }

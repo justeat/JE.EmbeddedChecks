@@ -2,6 +2,8 @@
 using NSpec;
 using NSpec.Domain;
 using NSpec.Domain.Formatters;
+using Ploeh.AutoFixture;
+using Ploeh.AutoFixture.AutoFakeItEasy;
 using Shouldly;
 using Xunit;
 
@@ -9,6 +11,14 @@ namespace JE.EmbeddedChecks.Tests
 {
     public abstract class nspec_base : nspec
     {
+        protected Fixture AF;
+
+        protected nspec_base()
+        {
+            AF = new Fixture();
+            AF.Customize(new AutoFakeItEasyCustomization());
+        }
+
         [Fact]
         public void run()
         {

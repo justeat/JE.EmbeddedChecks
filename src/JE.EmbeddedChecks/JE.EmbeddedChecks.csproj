@@ -41,7 +41,7 @@
     <Compile Include="CheckResult.cs" />
     <Compile Include="CheckRunner.cs" />
     <Compile Include="CheckStatus.cs" />
-    <Compile Include="ConsolePublisher.cs">
+    <Compile Include="TracePublisher.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="EmbeddedCheck.cs" />

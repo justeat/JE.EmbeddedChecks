@@ -1,29 +1,35 @@
 using System;
+using System.Diagnostics;
 
 namespace JE.EmbeddedChecks
 {
     public abstract class EmbeddedCheck<TCheckResult> : IAmACheck
     {
-        private readonly string _name;
+        public string Name { get; }
 
         protected EmbeddedCheck(string name)
         {
-            _name = name;
+            Name = name;
         }
 
         public CheckResult Execute()
         {
-            var result = new CheckResult(_name);
+            var result = new CheckResult(Name);
+            var sw = Stopwatch.StartNew();
             try
             {
                 var customThing = Run(result);
                 EnrichResultWith(result, customThing);
-                return result;
             }
             catch (Exception exception)
             {
-                return ResultFromException(exception);
+                result = ResultFromException(exception);
             }
+            finally
+            {
+                result.Duration = sw.Elapsed;
+            }
+            return result;
         }
 
         protected virtual void EnrichResultWith(CheckResult result, TCheckResult checkResult)
@@ -35,7 +41,7 @@ namespace JE.EmbeddedChecks
 
         protected virtual CheckResult ResultFromException(Exception ex)
         {
-            return new CheckResult(_name)
+            return new CheckResult(Name)
             {
                 Status = CheckStatus.FailedInconclusive,
                 Message = ex.GetBaseException().Message,

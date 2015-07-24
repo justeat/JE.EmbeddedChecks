@@ -4,7 +4,7 @@ using System.Diagnostics;
 
 namespace JE.EmbeddedChecks
 {
-    public class ConsolePublisher : ResultPublisher
+    public class TracePublisher : ResultPublisher
     {
         private readonly IDictionary<CheckStatus, string> _map =
             new Dictionary<CheckStatus, string> {
@@ -26,16 +26,17 @@ namespace JE.EmbeddedChecks
             }
         };
 
-        protected override void Publish(CheckResult result)
+        public override void PublishCheckResult(CheckResult result)
         {
-            Console.Write(_map[result.Status]);
+            Trace.TraceInformation(_map[result.Status]);
         }
 
-        protected override void OnPublishError(CheckResult result, Exception exception)
+        public override void OnCheckError(CheckResult result, Exception exception)
         {
             Trace.TraceError(
-                "{0} failed: {1}|{2}|{3}|{4}",
+                "{0} failed: {1}|{2}|{3}|{4}|{5}",
                 result.Name,
+                result.Duration,
                 result.Message,
                 result.MetaData,
                 result.StackTrace,
