@@ -5,7 +5,7 @@ namespace JE.EmbeddedChecks
 {
     public abstract class EmbeddedCheck<TCheckResult> : IAmACheck
     {
-        public string Name { get; }
+        public string Name { get; private set; }
 
         protected EmbeddedCheck(string name)
         {
