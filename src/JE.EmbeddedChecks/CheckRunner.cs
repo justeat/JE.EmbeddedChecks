@@ -10,7 +10,7 @@ namespace JE.EmbeddedChecks
 
         public CheckRunner(IPublishResults publisher)
         {
-            _publisher = publisher ?? new ResultPublisher();
+            _publisher = publisher ?? new TracePublisher();
         }
 
         public IList<CheckResult> Run(IList<IAmACheck> checks)

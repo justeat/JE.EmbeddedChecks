@@ -28,19 +28,18 @@ namespace JE.EmbeddedChecks
 
         public override void PublishCheckResult(CheckResult result)
         {
-            Trace.TraceInformation(_map[result.Status]);
+            Trace.WriteLine(_map[result.Status], "EmbeddedChecks");
         }
 
         public override void OnCheckError(CheckResult result, Exception exception)
         {
-            Trace.TraceError(
-                "{0} failed: {1}|{2}|{3}|{4}|{5}",
+            Trace.WriteLine(string.Format("{0} failed: {1}|{2}|{3}|{4}|{5}",
                 result.Name,
                 result.Duration,
                 result.Message,
                 result.MetaData,
                 result.StackTrace,
-                exception);
+                exception), "EmbeddedChecks");
         }
     }
 }
