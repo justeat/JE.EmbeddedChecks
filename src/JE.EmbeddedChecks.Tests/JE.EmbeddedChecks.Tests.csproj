@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -39,6 +39,10 @@
       <HintPath>..\..\packages\FakeItEasy.1.7.4109.1\lib\NET40\FakeItEasy.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="JustEat.StatsD, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\JustEat.StatsD.1.0.2.13\lib\net452\JustEat.StatsD.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="NSpec, Version=0.9.68.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\nspec.0.9.68\lib\NSpec.dll</HintPath>
       <Private>True</Private>
@@ -77,6 +81,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="describe_an_embedded_check.cs" />
+    <Compile Include="describe_publishing_to_statsd.cs" />
     <Compile Include="describe_running_checks.cs" />
     <Compile Include="EnrichingCheck.cs" />
     <Compile Include="FailingCheck.cs" />
@@ -91,6 +96,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\JE.EmbeddedChecks.StatsD\JE.EmbeddedChecks.StatsD.csproj">
+      <Project>{E241E675-71DD-4241-B479-65222C61A6BB}</Project>
+      <Name>JE.EmbeddedChecks.StatsD</Name>
+    </ProjectReference>
     <ProjectReference Include="..\JE.EmbeddedChecks\JE.EmbeddedChecks.csproj">
       <Project>{34ACDBE5-8B6C-4432-86AA-9D8567CDC2B6}</Project>
       <Name>JE.EmbeddedChecks</Name>

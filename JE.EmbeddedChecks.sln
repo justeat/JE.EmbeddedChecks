@@ -12,6 +12,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JE.EmbeddedChecks", "src\JE
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JE.EmbeddedChecks.Tests", "src\JE.EmbeddedChecks.Tests\JE.EmbeddedChecks.Tests.csproj", "{54A59EFC-DF7F-4013-A9F3-F742ADE119A4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JE.EmbeddedChecks.StatsD", "src\JE.EmbeddedChecks.StatsD\JE.EmbeddedChecks.StatsD.csproj", "{E241E675-71DD-4241-B479-65222C61A6BB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -26,6 +28,10 @@ Global
 		{54A59EFC-DF7F-4013-A9F3-F742ADE119A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{54A59EFC-DF7F-4013-A9F3-F742ADE119A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{54A59EFC-DF7F-4013-A9F3-F742ADE119A4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E241E675-71DD-4241-B479-65222C61A6BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E241E675-71DD-4241-B479-65222C61A6BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E241E675-71DD-4241-B479-65222C61A6BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E241E675-71DD-4241-B479-65222C61A6BB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

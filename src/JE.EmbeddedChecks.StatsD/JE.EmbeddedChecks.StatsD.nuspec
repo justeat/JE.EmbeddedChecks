@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>$id$</id>
+    <version>$version$</version>
+    <title>$title$</title>
+    <authors>$author$</authors>
+    <owners>$author$</owners>
+    <licenseUrl>http://github.com/justeat/JE.EmbeddedChecks/blob/master/LICENSE</licenseUrl>
+    <projectUrl>http://github.com/justeat/JE.EmbeddedChecks</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>$description$</description>
+    <releaseNotes>http://github.com/justeat/JE.EmbeddedChecks/blob/master/CHANGELOG.md</releaseNotes>
+    <copyright>Copyright JUST EAT 2015</copyright>
+    <tags>production checks health statsd graphite alerts</tags>
+  </metadata>
+</package>
