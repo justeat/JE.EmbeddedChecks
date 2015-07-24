@@ -1,13 +1,13 @@
 {
-    "scripts":  {
-                    "version":  1
-                },
-    "feature":  {
-                    "name":  "embeddedchecks",
-                    "role":  "library"
-                },
-    "build":  {
-                  "solution":  "JE.EmbeddedChecks.sln",
-                  "mainproject":  "JE.EmbeddedChecks\\JE.EmbeddedChecks.csproj"
-              }
+  "scripts": {
+    "version": 1
+  },
+  "feature": {
+    "name": "embeddedchecks",
+    "role": "library"
+  },
+  "build": {
+    "solution": "JE.EmbeddedChecks.sln",
+    "mainproject": "JE.EmbeddedChecks\\JE.EmbeddedChecks.csproj"
+  }
 }
