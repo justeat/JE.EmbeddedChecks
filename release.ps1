@@ -19,6 +19,7 @@ write-host "Your current status" -foregroundcolor green
 write-host "Stashing any work and checking out master" -foregroundcolor green
 & git stash
 & git checkout master
+& git pull upstream master --tags
 write-host "We'll pause now while you remember to bump the version number in CI ($ci_uri/settings) AND appveyor.yml to match the version you're releasing ($version) ;-)"
 write-host "  TODO: bounty - do this in code against appveyor's api" -foregroundcolor red
 write-host "  http://www.appveyor.com/docs/api/projects-builds#update-project" -foregroundcolor red
